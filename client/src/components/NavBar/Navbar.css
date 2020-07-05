@@ -1,0 +1,12 @@
+.MuiPaper-root.homepage-navbar {
+  background-color: black;
+}
+
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.MuiPaper-root.homepage-navbar-button {
+  width: 50%;
+}
