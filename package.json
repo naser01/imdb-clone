@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "set NODE_ENV=production&& nodemon backend/server.js",
+    "server": "set NODE_ENV=production&& node backend/server.js",
     "start": "node client/scripts/start.js -w"
   },
   "author": "",
