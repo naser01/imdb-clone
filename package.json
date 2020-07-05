@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "set NODE_ENV=production&& node backend/server.js",
-    "start": "node client/scripts/start.js -w"
+    "start": "node client/scripts/start.js"
   },
   "author": "",
   "license": "ISC"
