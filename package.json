@@ -9,7 +9,5 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.0.0"
-  }
+  "dependencies": {}
 }
