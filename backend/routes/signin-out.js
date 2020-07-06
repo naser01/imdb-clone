@@ -2,7 +2,7 @@ const User = require('../models/user');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const users = require('express').Router();
-const jwt = require('jsonwebtoken');
+//const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 
 const {
@@ -58,9 +58,10 @@ users.post('/signup', (req, res, next) => {
                             res.send('err: ' + err)
                         })
                 })
+                /**
                 let token = jwt.sign(user, process.env.SECRET_KEY, {
                     expiresIn: 1440
-                })
+                })*/
             } else {
                 return res
                     .status(403)
@@ -101,10 +102,11 @@ users.post('/signin', (req, res, next) => {
                         likedmovies: u.likedmovies,
                         reviews: u.reviews
                     }
+                    /** 
                     let token = jwt.sign(payload, process.env.SECRET_KEY, {
                         expiresIn: 10000
-                    })
-                    res.json({ token })
+                    })*/
+                    //res.json({ token })
                     //res.send(token)
                 } else {
                     res.json({ error: 'User does not exist' })
