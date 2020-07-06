@@ -1,4 +1,4 @@
-let Movie = require('../models/movies.models');
+let Movie = require('../models/movies');
 const cors = require('cors');
 const movies = require('express').Router();
 
