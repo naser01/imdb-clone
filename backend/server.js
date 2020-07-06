@@ -27,6 +27,7 @@ const dev = app.get('env') !== 'production';
 if (!dev) {
   app.use(express.static(path.resolve(__dirname, '..', 'client', 'build')));
   app.use('*', express.static(path.resolve(__dirname, '..', 'client', 'build')));
+
   app.get('*', (res, req) => {
     res.send(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
