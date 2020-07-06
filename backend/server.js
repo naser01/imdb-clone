@@ -50,7 +50,7 @@ app.get('*', (res, req) => {
 
 }*/
 
-const signupRoute = require('./routes/signin-out')
+const signupRoute = require('./routes/signingout')
 const movieRoute = require('./routes/movies')
 
 app.use('/account', signupRoute)
