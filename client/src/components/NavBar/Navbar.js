@@ -66,59 +66,71 @@ const styles = (theme) => ({
   }
 });
 
-const Navbar = (props) => {
-  const handleLogout = () => {
+class Navbar extends Component {
+  //const { open } = this.state;
+  /** 
+   * 
+  */
+  //const[anchorEl, setAnchorEl] = React.useState(null);
+  state = {
+    open: false
+  }
+  handleClick = (event) => {
+    //setAnchorEl(event.currentTarget);
+    this.setState({ open: true })
+  };
+
+  handleClose = () => {
+    //setAnchorEl(null);
+    this.setState({ open: false })
+  };
+
+  handleLogout = () => {
     this.props.logoutUser()
   }
 
-
-  //const { open } = this.state;
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const { classes } = props;
-  return (
-    <AppBar className="homepage-navbar">
-      <div className="display-flex">
-        <IconButton className="homepage-navbar-button" style={{ marginLeft: '1%' }} edge="start" onClick={handleLogout} color="inherit" aria-label="menu">
-          <ExitToAppIcon />
-        </IconButton>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
+  render() {
+    const { classes } = this.props;
+    return (
+      <AppBar className="homepage-navbar">
+        <div className="display-flex">
+          <IconButton className="homepage-navbar-button" style={{ marginLeft: '1%' }} edge="start" onClick={this.handleLogout} color="inherit" aria-label="menu">
+            <ExitToAppIcon />
+          </IconButton>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
           </div>
-          <InputBase
-            placeholder="Search…"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </div>
-        < IconButton onClick={handleClick} className="homepage-navbar-button" edge="start" color="inherit" aria-label="menu">
-          <AccountCircle style={{ fontSize: 40 }} />
-        </IconButton>
-        <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My Reviews</MenuItem>
-          <MenuItem onClick={handleClose}>Liked Movies</MenuItem>
-        </Menu>
-      </div>
-    </AppBar>
-  )
+          < IconButton onClick={this.handleClick} className="homepage-navbar-button" edge="start" color="inherit" aria-label="menu">
+            <AccountCircle style={{ fontSize: 40 }} />
+            <Menu
+              id="simple-menu"
+              anchorEl={null}
+              keepMounted
+              open={this.state.open}
+              onClose={this.handleClose}
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            >
+              <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+              <MenuItem onClick={this.handleClose}>My Reviews</MenuItem>
+              <MenuItem onClick={this.handleClose}>Liked Movies</MenuItem>
+            </Menu>
+          </IconButton>
 
+        </div>
+      </AppBar>
+    )
+  }
 }
 
 const mapStateToProps = (state) => ({

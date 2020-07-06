@@ -1,6 +1,6 @@
 const User = require('../models/users.models');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const users = require('express').Router();
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
