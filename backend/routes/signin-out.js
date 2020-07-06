@@ -102,7 +102,6 @@ users.post('/signin', (req, res, next) => {
                         likedmovies: u.likedmovies,
                         reviews: u.reviews
                     }
-
                     let token = jwt.sign(payload, process.env.SECRET_KEY, {
                         expiresIn: 10000
                     })
