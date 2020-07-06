@@ -7,6 +7,7 @@ class home extends Component {
     render() {
         return (
             <div>
+                
                 <Navbar />
                 <MoviesDisplay style={{ marginTop: '10%' }} />
             </div>
