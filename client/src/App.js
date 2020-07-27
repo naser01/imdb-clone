@@ -14,6 +14,7 @@ import AuthRoute from './util/AuthRoute';
 import UnAuthRoute from './util/UnAuthRoute';
 import jwtDecode from 'jwt-decode';
 //Redux
+
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import axios from 'axios';
@@ -23,8 +24,9 @@ const theme = createTheme(themeFile);
 class App extends Component {
 
   render() {
-    store.dispatch({ type: 'SET_ERRORS' })
+    //store.dispatch({ type: 'SET_ERRORS' })
     return (
+
       <MuiThemeProvider theme={theme}>
         <Provider store={store}>
           <Router>

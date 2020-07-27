@@ -3,9 +3,14 @@ import './MoviesDisplay.css';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieCard from '../MovieCard/MovieCards';
+
 //Material UI
 import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
+
+//REDUX
+import { connect } from 'react-redux';
+import { topMovies, popularMovies, upcommingMovies } from '../../redux/actions/dataActions';
 
 const responsive = {
     superLargeDesktop: {
@@ -28,6 +33,9 @@ const responsive = {
 };
 
 class MoviesDisplay extends Component {
+    componentDidMount() {
+
+    }
     render() {
         return (
             <div className="MoviesDisplay">
@@ -111,4 +119,10 @@ class MoviesDisplay extends Component {
     }
 }
 
-export default withStyles()(MoviesDisplay)
+const mapStateToProps = (state) => ({
+    user: state.user
+});
+
+const mapActionsToProps = { topMovies, popularMovies, upcommingMovies };
+
+export default connect(mapStateToProps, mapActionsToProps)(withStyles()(MoviesDisplay))

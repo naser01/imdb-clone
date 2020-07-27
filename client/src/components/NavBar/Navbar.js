@@ -41,6 +41,7 @@ const styles = (theme) => ({
   },
   inputRoot: {
     color: 'inherit',
+    marginTop: '2%'
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -73,7 +74,8 @@ class Navbar extends Component {
   */
   //const[anchorEl, setAnchorEl] = React.useState(null);
   state = {
-    open: false
+    open: false,
+    search: ''
   }
   handleClick = (event) => {
     //setAnchorEl(event.currentTarget);
@@ -91,13 +93,14 @@ class Navbar extends Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.state.search)
     return (
       <AppBar className="homepage-navbar">
         <div className="display-flex">
           <IconButton className="homepage-navbar-button" style={{ marginLeft: '1%' }} edge="start" onClick={this.handleLogout} color="inherit" aria-label="menu">
             <ExitToAppIcon />
           </IconButton>
-          <div className={classes.search}>
+          <form className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -108,8 +111,9 @@ class Navbar extends Component {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              onChange={(event) => this.setState({ search: event.target.value })}
             />
-          </div>
+          </form>
           < IconButton onClick={this.handleClick} className="homepage-navbar-button" edge="start" color="inherit" aria-label="menu">
             <AccountCircle style={{ fontSize: 40 }} />
             <Menu
